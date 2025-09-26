@@ -1,0 +1,31 @@
+# setup dnf
+sudo echo "defaultyes=True" >> /etc/dnf/dnf.conf
+sudo echo "fastestmirror=True" >> /etc/dnf/dnf.conf
+sudo echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
+
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf copr enable timlau/yumex-ng
+
+flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
+flatpak remote-delete fedora
+
+sudo dnf install git zsh nvim htop fastfetch dnf-plugins-core thunar terminator yumex gnome-tweaks gnome-extensions-app numix-icon-theme-circle breeze-cursor-theme
+
+
+# install gnome
+sudo dnf group install workstation-product-environment
+sudo systemctl set-default graphical.target
+
+
+# install podman
+sudo dnf install podman podman-docker podman-compose docker-switch
+
+flatpak install flathub io.podman_desktop.PodmanDesktop
+
+
+# install plex
+
+https://www.plex.tv/claim
+http://localhost:32400/web
