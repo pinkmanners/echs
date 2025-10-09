@@ -1,4 +1,4 @@
-#    zshrc - 20250919  pinkmanners
+#    zshrc - 20250928  pinkmanners
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -139,8 +139,10 @@ alias cd..='cd ..'
 alias fpi='flatpak install'
 alias fpui='flatpak uninstall'
 alias fpu='flatpak update'
+alias fps='flatpak search'
 alias q='exit'
 alias c='clear'
+alias updateAll='sudo dnf upgrade -y && flatpak update -y'
 
 # run these things
 unsetopt nomatch
