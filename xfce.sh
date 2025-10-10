@@ -159,7 +159,7 @@ echo
 echo
 echo " ...[1/3] from DNF"
 echo
-sudo dnf install gh git ruby make gcc zsh vim nvim lsd bat fzf mc fd ranger htop btop nvtop fastfetch yt-dlp dnf-plugins-core snapper btrfs-assistant xarchiver thunar terminator kitty yumex parole gpick gparted gnome-disks numix-icon-theme-circle breeze-cursor-theme
+sudo dnf install gh git ruby make gcc zsh vim nvim lsd bat fzf mc fd ranger htop btop nvtop fastfetch yt-dlp dnf-plugins-core snapper btrfs-assistant xarchiver thunar terminator kitty yumex parole catfish gpick gparted gnome-disks numix-icon-theme-circle breeze-cursor-theme
 sudo dnf install libreoffice*
 sudo dnf install p7zip-*
 sudo dnf install --allowerasing ffmpeg
@@ -199,7 +199,7 @@ echo "■ (7/7) Removing unused software and dependancies..."
 echo
 
 # remove software
-sudo dnf remove gnome-boxes gnome-connections gnome-contacts gnome-maps gnome-tour totem mediawriter firefox rhythmbox claws-mail pidgin transmission asunder pragha atril
+sudo dnf remove dnfdragora gnome-boxes gnome-connections gnome-contacts gnome-maps gnome-tour totem mediawriter firefox rhythmbox claws-mail pidgin transmission asunder pragha atril geany
 
 # remove any unused dependacies
 sudo dnf autoremove
