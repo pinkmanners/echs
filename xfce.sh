@@ -62,7 +62,8 @@ echo "■ (1/7) Configuring DNF..."
 echo
 
 # speed up dnf by adding these to dnf.conf
-touch /etc/dnf/dnf.conf
+sudo touch /etc/dnf/dnf.conf
+echo
 sudo echo "defaultyes=True" | sudo tee -a /etc/dnf/dnf.conf
 sudo echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
 sudo echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf
@@ -117,7 +118,7 @@ flatpak update -y
 
 # add the flathub repo and reinstall flatpaks from it, then remove the fedora maintained repo
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install -y --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
+flatpak install -y --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform | tail -n +1 )
 flatpak remote-delete fedora
 
 #                    __      __
@@ -135,8 +136,7 @@ echo
 echo
 echo " ...[1/2] DNF Updates"
 echo
-sudo dnf --refresh
-sudo dnf update
+sudo dnf update --refresh
 
 # update flatpaks
 echo
@@ -173,19 +173,19 @@ echo
 flatpak install -y com.brave.Browser net.waterfox.waterfox net.mullvad.MullvadBrowser org.telegram.desktop
 
 # audio
-flatpak install -y org.tenacityaudio.Tenacity org.gnome.Rhythmbox3 org.soundconverter.SoundConverter org.strawberrymusicplayer.strawberry com.mastermindzh.tidal-hifi io.github.lo2dev.Echo org.audacityteam.Audacity
+#flatpak install -y org.tenacityaudio.Tenacity org.gnome.Rhythmbox3 org.soundconverter.SoundConverter org.strawberrymusicplayer.strawberry com.mastermindzh.tidal-hifi io.github.lo2dev.Echo org.audacityteam.Audacity
 
 # video
-flatpak install -y tv.plex.PlexDesktop fr.handbrake.ghb io.mpv.Mpv org.videolan.VLC
+#flatpak install -y tv.plex.PlexDesktop fr.handbrake.ghb io.mpv.Mpv org.videolan.VLC
 
 # images
-flatpak install -y org.xfce.ristretto org.darktable.Darktable com.xnview.xnconvert org.inkscape.Inkscape org.kde.krita org.gimp.GIMP
+#flatpak install -y org.xfce.ristretto org.darktable.Darktable com.xnview.xnconvert org.inkscape.Inkscape org.kde.krita org.gimp.GIMP
 
 # productivity
-flatpak install -y org.onlyoffice.desktopeditors com.logseq.logseq org.gnome.Papers re.sonny.Eloquent dev.zed.Zed
+#flatpak install -y org.onlyoffice.desktopeditors com.logseq.logseq org.gnome.Papers re.sonny.Eloquent dev.zed.Zed
 
 # utilities
-flatpak install -y camp.nook.nookdesktop com.github.ADBeveridge.Raider io.github.amit9838.mousam com.bitwarden.desktop it.mijorus.gearlever io.github.flattool.Warehouse io.github.mhogomchungu.media-downloader io.github.PeaZip com.poweriso.PowerISO com.transmissionbt.Transmission
+#flatpak install -y camp.nook.nookdesktop com.github.ADBeveridge.Raider io.github.amit9838.mousam com.bitwarden.desktop it.mijorus.gearlever io.github.flattool.Warehouse io.github.mhogomchungu.media-downloader io.github.PeaZip com.poweriso.PowerISO com.transmissionbt.Transmission
 
 
 #                                                       ______
