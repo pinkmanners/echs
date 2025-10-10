@@ -63,9 +63,9 @@ echo
 
 # speed up dnf by adding these to dnf.conf
 touch /etc/dnf/dnf.conf
-sudo echo "defaultyes=True" >> /etc/dnf/dnf.conf
-sudo echo "fastestmirror=True" >> /etc/dnf/dnf.conf
-sudo echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf
+sudo echo "defaultyes=True" | sudo tee -a /etc/dnf/dnf.conf
+sudo echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
+sudo echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf
 
 
 #    ________  ____  ____  _____
