@@ -1,5 +1,3 @@
-#    zshrc - 20250928  pinkmanners
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -75,8 +73,19 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git dnf yt-dlp zsh-syntax-highlighting zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
+# zsh-completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# fzf + zsh-syntax-highlighting catppuccin_macchiato
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
+--color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
+--color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
+--color=selected-bg:#494D64 \
+--color=border:#6E738D,label:#CAD3F5"
 source $ZSH/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
+source $ZSH/oh-my-zsh.sh
 
 # now load zsh-syntax-highlighting plugin
 
@@ -85,14 +94,15 @@ source $ZSH/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+export EDITOR='nvim'
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='nvim'
+#fi
 
 
 # Compilation flags
@@ -105,10 +115,14 @@ fi
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cd..='cd ..'
+alias fpi='flatpak install'
+alias fpui='flatpak uninstall'
+alias fpu='flatpak update'
+alias fps='flatpak search'
+alias q='exit'
+alias c='clear'
+alias updateAll='sudo dnf upgrade -y && flatpak update -y'
 
 ########################################################################
 
@@ -132,17 +146,6 @@ prompt_context() {
 	emoji=("🌈")
     prompt_segment black default "$emoji $USERNAME | $HOST"
 }
-
-# alias'
-#alias ls='ls -al'
-alias cd..='cd ..'
-alias fpi='flatpak install'
-alias fpui='flatpak uninstall'
-alias fpu='flatpak update'
-alias fps='flatpak search'
-alias q='exit'
-alias c='clear'
-alias updateAll='sudo dnf upgrade -y && flatpak update -y'
 
 # run these things
 unsetopt nomatch
